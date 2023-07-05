@@ -23,12 +23,10 @@ class DashboardController extends Controller
     public function admin() {
         $switch = SwitchUtil::first();
         $distance = Distance::latest()->take(30)->get();
-        // dd(count($distance));
         $count = count($distance);
         foreach($distance as $key => $dis) {
             $y[$key] = $dis->length;
             $x[$key] = Carbon::parse($dis->created_at)->format("d M Y H:i:s");
-            // $x[$key] = $dis->created_at;
         }
 
         $x = array_reverse($x);
