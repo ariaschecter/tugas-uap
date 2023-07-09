@@ -11,7 +11,7 @@ class ApiController extends Controller
     public function distance(Request $request) {
         $length = $request->distance;
         $switch = SwitchUtil::first();
-        if ($length < 50) {
+        if ($length < 10) {
             $switch->update(['switch' => 1]);
         } else {
             $switch->update(['switch' => 0]);
